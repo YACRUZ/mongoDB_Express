@@ -7,7 +7,7 @@ app.use(cors());
 app.options('*', cors());
 const port = 3001;
 
-const uri = 'mongodb+srv://rodrigomencias08:o8Nl0JitEmFTB6YB@cluster0.7ipkl3j.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://itzelll:NtWMhS9DNb1RzPp0@comidas.tv394y9.mongodb.net/?retryWrites=true&w=majority';
 const client = new MongoClient(uri);
 
 app.use(express.json());
@@ -15,8 +15,8 @@ app.use(express.json());
 app.get('/users', async (req, res) => {
   try {
     await client.connect();
-    const db = client.db('peliculas');
-    const collection = db.collection('peliculas_comments');
+    const db = client.db('memes');
+    const collection = db.collection('memes_comments');
     const users = await collection.find().toArray();
     res.json(users);
   } catch (error) {
@@ -32,8 +32,8 @@ app.get('/documents/:objectId/reactions/:reactionId', async (req, res) => {
 
   try {
     await client.connect();
-    const db = client.db('peliculas');
-    const collection = db.collection('peliculas_summaryreactions');
+    const db = client.db('memes');
+    const collection = db.collection('memes_sumaryReactions');
 
     const query = { "_id.objectId": objectId, "_id.reactionId": reactionId };
     const result = await collection.find(query).toArray();
@@ -53,8 +53,8 @@ app.get('/commentsByUserId/:userId/', async (req, res) => {
 
   try {
     await client.connect();
-    const db = client.db('peliculas');
-    const collection = db.collection('peliculas_comments');
+    const db = client.db('memes');
+    const collection = db.collection('memes_comments');
 
     const query = { "userId": userId };
     const result = await collection.find(query).toArray();

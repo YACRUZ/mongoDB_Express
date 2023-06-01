@@ -69,6 +69,9 @@ app.get('/commentsByUserId/:userId/', async (req, res) => {
   }
 });
 
+
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
+
+

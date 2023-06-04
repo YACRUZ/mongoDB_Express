@@ -7,7 +7,7 @@ app.use(cors());
 app.options('*', cors());
 const port = 3001;
 
-const uri = 'mongodb+srv://itzelll:NtWMhS9DNb1RzPp0@comidas.tv394y9.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://yamatsukino:tMDo82LbaOFq3adX@kafka-db.c4cafoj.mongodb.net/?retryWrites=true&w=majority';
 const client = new MongoClient(uri);
 
 async function startServer() {
@@ -19,7 +19,7 @@ async function startServer() {
 
     app.get('/users', async (req, res) => {
       try {
-        const db = client.db('memes');
+        const db = client.db('animes');
         const collection = db.collection('memes_comments');
         const users = await collection.find().toArray();
         res.json(users);

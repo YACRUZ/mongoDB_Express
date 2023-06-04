@@ -34,7 +34,7 @@ async function startServer() {
       const reactionId = req.params.reactionId;
 
       try {
-        const db = client.db('memes');
+        const db = client.db('animes');
         const collection = db.collection('memes_sumaryReactions');
 
         const query = { "_id.objectId": objectId, "_id.reactionId": reactionId };
@@ -52,7 +52,7 @@ async function startServer() {
       const userId = req.params.userId;
 
       try {
-        const db = client.db('memes');
+        const db = client.db('animes');
         const collection = db.collection('memes_comments');
 
         const query = { "objectId": userId };
